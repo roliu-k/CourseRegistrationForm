@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Serilog;
 
 namespace CNC_CourseRegistration
 {
@@ -37,6 +38,8 @@ namespace CNC_CourseRegistration
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
+
+            //app.UseSerilogRequestLogging();
 
             app.UseRouting();
 
