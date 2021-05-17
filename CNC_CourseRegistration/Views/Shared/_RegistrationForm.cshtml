@@ -1,0 +1,60 @@
+﻿@model CNC_CourseRegistration.Models.StudentModel
+
+<h3>Register a course</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6 col-10">
+        <form id="register-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" id="firstName" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" id="lastName"/>
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassTime" class="control-label"></label>
+                <select asp-for="ClassTime" class="form-control" id="classTime">
+                    <option value="weekday-morning">Weekday Mornings</option>
+                    <option value="weekday-afternoon">Weekday Afternoons</option>
+                    <option value="weekday-evening">Weekday Evenings</option>
+                    <option value="weekend-morning">Weekend Mornings</option>
+                    <option value="weekend-afternoon">Weekend Afternoons</option>
+                    <option value="weekend-evening">Weekend Evenings</option>
+                </select>
+                <span asp-validation-for="ClassTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferredStartDate" class="control-label"></label>
+                <input asp-for="PreferredStartDate" class="form-control" type="date" value="@DateTime.Today.Date" id="startDate"/>
+                @*<input type="date" id="start" name="trip-start"
+            value="2018-07-22"
+            min="2018-01-01" max="2018-12-31">*@
+                <span asp-validation-for="PreferredStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary" id="btnSubmit" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 col-10 d-none" id="feedback">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Hi <span id="username"></span>, You have successfully registered the course and it will start at <span id="firstClassDateTime"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
