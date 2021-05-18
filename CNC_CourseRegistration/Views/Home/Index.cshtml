@@ -72,22 +72,15 @@
                     "ClassTime": $("#classTime").val(),
                     "PreferredStartDate": $("#startDate").val()
                 };
-                console.log(formObj);
 
                 // call the /home/feedback to retrieve the generated username and proper start time back
                 $.ajax({
                     method: "POST",
                     url: "/Home/Feedback",
-                    data: { studentJsonStr: JSON.stringify(formObj) },
+                    data: JSON.stringify(formObj),
                     dataType: "json",
-                    //contentType: 'application/json; charset=utf-8',
-                    //headers: {
-                    //    RequestVerificationToken:
-                    //        $('input:hidden[name="__RequestVerificationToken"]').val()
-                    //},
+                    contentType: 'application/json; charset=utf-8',
                     success: function (data, status) {
-                        console.log(status);
-                        console.log(data)
                         $("#feedback").removeClass("d-none");
                         $("#username").text(data.Username);
                         $("#firstClassDateTime").text(data.FirstClassDatetime);

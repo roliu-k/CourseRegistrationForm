@@ -26,10 +26,8 @@ namespace CNC_CourseRegistration.Controllers
 
         //Home/Feedback
         [HttpPost]
-        public string Feedback(string studentJsonStr)
+        public string Feedback([FromBody]StudentModel student)
         {
-            // parse the json string to StudentModel class
-            var student = JsonConvert.DeserializeObject<StudentModel>(studentJsonStr);
 
             // generate a random 4-digit number for the student
             var randNo = GenerateRandomNo();
@@ -51,6 +49,7 @@ namespace CNC_CourseRegistration.Controllers
             var message = $"The student: { student.FirstName + " " + student.LastName } who has selected { student.ClassTime } and preferred start date { student.PreferredStartDate } has registered the class that starts from {feedback.FirstClassDatetime} with username: {feedback.Username}";
             _logger.LogInformation(message);
 
+            // return the json string of feedback
             return JsonConvert.SerializeObject(feedback);
         }
 

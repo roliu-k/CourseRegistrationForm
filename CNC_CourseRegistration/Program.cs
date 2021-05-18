@@ -34,7 +34,7 @@ namespace CNC_CourseRegistration
             }
             finally
             {
-                // push the log messages that are still pending to make sure they are written and then close the log
+                // write the log messages that are still pending and then close the logger
                 Log.CloseAndFlush();
             }
 
