@@ -1,10 +1,32 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+body{
+    background-color: rgb(49, 60, 65);
+    color: white;
+}
+
+hr{
+    background-color: white;
+}
+
+#btnSubmit{
+    background-color: rgba(235, 103, 21, 0.9);
+    border: none;
+}
+
+.card-border {
+    border: 2px solid rgba(235, 103, 21, 0.7);
+}
+
+nav {
+    background-color: rgba(235, 103, 21, 0.8);
+}
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
